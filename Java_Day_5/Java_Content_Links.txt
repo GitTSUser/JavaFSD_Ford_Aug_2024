@@ -1,0 +1,7 @@
+Links to refer:
+--------------
+https://www.geeksforgeeks.org/collections-in-java-2/
+
+https://www.javatpoint.com/collections-in-java
+
+https://www.studytonight.com/java/collection-framework.php
