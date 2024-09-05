@@ -1,0 +1,10 @@
+Links to refer Generics, maps, object ordering:-
+-----------------------------------------------
+
+https://www.geeksforgeeks.org/generics-in-java/
+
+https://www.javatpoint.com/java-map
+
+https://www.javatpoint.com/difference-between-comparable-and-comparator
+
+https://www.codejava.net/java-core/collections/understanding-object-ordering-in-java-with-comparable-and-comparator
