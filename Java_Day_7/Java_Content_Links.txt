@@ -1,0 +1,13 @@
+Links to refer Generics, Streams, lambdas, modules,  jshell:-
+-------------------------------------------------------------
+
+https://www.tutorialspoint.com/java_generics/java_generics_classes.htm
+
+https://www.javatpoint.com/java-8-features
+https://www.javatpoint.com/java-lambda-expressions
+https://www.javatpoint.com/java-8-method-reference
+https://www.javatpoint.com/java-8-optional
+https://www.javatpoint.com/java-8-stream
+https://www.javatpoint.com/java-9-module-system
+
+https://www.javatpoint.com/java-shell-tool
