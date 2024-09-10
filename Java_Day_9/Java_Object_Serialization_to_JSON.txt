@@ -1,0 +1,110 @@
+Serialization of Java objects to JSON :-
+=====================================
+
+In Java, serializing objects to JSON can be done using libraries like Jackson or Gson. here is an example using Jackson, which is widely used for converting Java objects to JSON and vice versa.
+
+Follow the Steps to serialize Java objects to JSON using Jackson:
+1. Add Jackson dependencies to your project.
+2. Create Java classes to be serialized.
+3. Use `ObjectMapper` to serialize Java objects to JSON.
+
+1. Add Jackson Dependency (for Maven)
+=======================================
+Add the following dependencies to your `pom.xml` file:
+
+<dependencies>
+    <!-- Jackson Core -->
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.15.0</version>
+    </dependency>
+</dependencies>
+
+
+2. Create Java Object Class
+============================
+public class User {
+    private String name;
+    private int age;
+    private String email;
+
+    // Constructors
+    public User() {
+    }
+
+    public User(String name, int age, String email) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
+
+    // Getters and Setters
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
+
+
+3. Serialization of User
+==========================
+Here's a simple example of serializing the `User` object to JSON:
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class SerializeExample {
+    public static void main(String[] args) {
+        try {
+            // Create ObjectMapper instance
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            // Create a User object
+            User user = new User("John Doe", 25, "john.doe@example.com");
+
+            // Serialize the User object to JSON
+            String json = objectMapper.writeValueAsString(user);
+
+            // Print the JSON string
+            System.out.println("Serialized JSON: " + json);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Output:-
+
+When you run this program, it will serialize the `User` object to a JSON string:
+
+Serialized JSON: {"name":"John Doe","age":25,"email":"john.doe@example.com"}
+
+
+4. Deserialization Example
+============================
+
+If you want to convert JSON back to a Java object, you can do:
+
+User userFromJson = objectMapper.readValue(json, User.class);
+System.out.println("User name: " + userFromJson.getName());
+
+

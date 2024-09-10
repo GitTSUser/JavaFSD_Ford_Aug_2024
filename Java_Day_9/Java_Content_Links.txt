@@ -1,0 +1,8 @@
+Links to refer Java File I/O and Serilaization,Deserialization:-
+--------------------------------------------------------------
+
+https://www.javatpoint.com/java-io
+
+https://www.javatpoint.com/serialization-in-java
+https://www.javatpoint.com/transient-keyword
+https://blogs.oracle.com/javamagazine/post/java-json-serialization-jackson
