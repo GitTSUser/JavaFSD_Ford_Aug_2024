@@ -1,0 +1,15 @@
+Ref links on Java Multithreading:-
+---------------------------------
+https://www.javatpoint.com/multithreading-in-java
+
+https://www.javatpoint.com/life-cycle-of-a-thread
+
+https://www.javatpoint.com/how-to-create-a-thread-in-java
+
+https://www.javatpoint.com/multitasking-in-multithreading
+
+https://www.javatpoint.com/synchronization-in-java
+
+https://www.javatpoint.com/inter-thread-communication-example
+
+https://www.javatpoint.com/deadlock-in-java
