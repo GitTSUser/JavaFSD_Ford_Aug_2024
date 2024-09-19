@@ -1,0 +1,59 @@
+In Spring Data JPA, finder methods are methods defined in a repository interface that follow a specific naming convention to automatically generate queries. These methods allow you to perform basic CRUD (Create, Read, Update, Delete) operations on entities without having to write explicit SQL queries. The naming convention is based on the method name, and Spring Data JPA translates it into a corresponding SQL query.
+
+Here are examples of finder methods in Spring Data JPA:
+
+1.FindBy: Query by a single property:
+====================================
+   
+   public interface UserRepository extends JpaRepository<User, Long> {
+       List<User> findByUsername(String username);
+   }
+   
+   This creates a query to find users by their username.
+
+2. FindBy...And...: Query by multiple properties.
+=====================================================
+   
+   public interface UserRepository extends JpaRepository<User, Long> {
+       List<User> findByUsernameAndEmail(String username, String email);
+   }
+   
+   This creates a query to find users by both username and email.
+
+3. Like: Using the `Like` keyword for pattern matching.
+=====================================================
+   public interface UserRepository extends JpaRepository<User, Long> {
+       List<User> findByUsernameLike(String partialUsername);
+   }
+
+   This creates a query to find users whose username contains the specified partial string.
+
+4. StartingWith, EndingWith, Containing: Using keywords for specific pattern matching.
+==========================================================================================
+
+   public interface UserRepository extends JpaRepository<User, Long> {
+       List<User> findByUsernameStartingWith(String prefix);
+       List<User> findByUsernameEndingWith(String suffix);
+       List<User> findByUsernameContaining(String substring);
+   }
+
+   These create queries to find users whose username starts with, ends with, or contains the specified strings, respectively.
+
+5. OrderBy: Sorting results.
+=================================
+
+   public interface UserRepository extends JpaRepository<User, Long> {
+       List<User> findByLastNameOrderByFirstNameAsc(String lastName);
+   }
+
+   This creates a query to find users by last name and orders the results by first name in ascending order.
+
+6. IsNull, IsNotNull: Checking for null or not null.
+========================================================
+ 
+   public interface UserRepository extends JpaRepository<User, Long> {
+       List<User> findByEmailIsNull();
+       List<User> findByEmailIsNotNull();
+   }
+
+   These create queries to find users with null or non-null email values.
