@@ -1,0 +1,6 @@
+-> once you completed coding for all layeres (for each entity crud operations should be completed)
+-> identify the business operations for every user who interact with system (and implement rest apis and service methods to handle those operations)
+-> then you can create test classes to test each layer
+-> implement security layer (role based or jwt based security for the application)
+-> you can divide your business features into microservices (if time permits )
+                             
