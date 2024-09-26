@@ -1,0 +1,74 @@
+Problem Statement 1: Service Orchestration with WebClient
+
+Implement a service orchestration scenario where a microservice (`OrderService`) needs to fetch information from multiple other microservices (`ProductService` and `CustomerService`) using WebClient in a Spring Boot 3.x application.
+
+Requirements:
+   - Three microservices (OrderService, ProductService, CustomerService).
+   - OrderService needs to retrieve product details from ProductService and customer details from CustomerService.
+   - Asynchronous communication between services is required.
+
+Operations to Perform:
+   - OrderService asynchronously requests product details from ProductService.
+   - OrderService asynchronously requests customer details from CustomerService.
+   - Aggregate the obtained information to fulfill the order.
+
+Sample Code Stub:
+
+   // OrderService code
+   WebClient productWebClient = WebClient.create("http://product-service");
+   WebClient customerWebClient = WebClient.create("http://customer-service");
+
+   Mono<Product> productDetails = productWebClient.get()
+                                   .uri("/products/{productId}", productId)
+                                   .retrieve()
+                                   .bodyToMono(Product.class);
+
+   Mono<Customer> customerDetails = customerWebClient.get()
+                                     .uri("/customers/{customerId}", customerId)
+                                     .retrieve()
+                                     .bodyToMono(Customer.class);
+
+   // Aggregate the obtained information
+
+Expectations:
+   - OrderService successfully retrieves product details from ProductService.
+   - OrderService successfully retrieves customer details from CustomerService.
+   - The obtained information is aggregated and processed.
+
+Outcomes:
+   - Successful service orchestration for order fulfillment.
+
+Problem Statement 2: Microservices Collaboration with OpenFeign
+
+Implement a collaborative scenario where two microservices (`InventoryService` and `ShippingService`) communicate using OpenFeign in a Spring Boot 3.x application.
+
+Requirements:
+   - Two microservices (InventoryService and ShippingService).
+   - InventoryService needs to check product availability in the inventory before shipping a product.
+   - Synchronous communication using OpenFeign is required.
+
+Operations to Perform:
+   - InventoryService uses a Feign client to check product availability in the InventoryService.
+   - If the product is available, ShippingService is called to ship the product.
+
+Sample Code Stub:
+ 
+   // InventoryService code
+   @FeignClient(name = "inventory-service", url = "http://inventory-service")
+   public interface InventoryServiceClient {
+       @GetMapping("/checkAvailability/{productId}")
+       boolean checkProductAvailability(@PathVariable Long productId);
+   }
+
+   // ShippingService code
+   @PostMapping("/shipProduct")
+   public void shipProduct(@RequestParam Long productId) {
+       // Shipping logic
+   }
+
+Expectations:
+   - InventoryService successfully checks product availability using the Feign client.
+   - If the product is available, ShippingService is invoked to ship the product.
+
+Outcomes:
+   - Successful collaboration between InventoryService and ShippingService using OpenFeign.
